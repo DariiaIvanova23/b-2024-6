@@ -1,0 +1,16 @@
+services:
+  app:
+    build: 
+      context: .
+    ports:
+      - "8088:8088"
+      - "9229:9229"
+    volumes:
+      - .:/app
+      - ./notes:/app/notes
+      - /app/node_modules
+    command: npm run dev
+    environment:
+      - NODE_ENV=development
+    stdin_open: true 
+    tty: true
